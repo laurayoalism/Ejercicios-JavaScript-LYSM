@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Laura Yoali Sosa Mendoza.">
+    <title>Ejercicio 4.</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    function comprobar() {
+        var t1 = 50;
+        var t2 = $('#t2').val();
+        if (t1>t2) 
+        {
+            alert('t1 es mayor a t2');
+        } else {
+            alert('t1 es menor a t2');
+        }
+        }
+        </script>
+</head>
+<body>
+<input type='number' id='t2' name='t2' />
+<button onclick='comprobar();'>Comprobar ahora</button>
+</body>
+</html>

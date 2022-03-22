@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <title>EJERCICIO FINAL, FORMULARIO </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejercicio final - formulario">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Laura Yoali Sosa Mendoza.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container principal">
+            <div class="row">
+
+            <div class="col-sm-12">
+            <h1>EJERCICIO FINAL, FORMULARIO:</h1>
+           
+            <form id="formulario">
+                          
+                    <label for="fname">Nombre:</label> <br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo."><br>
+                    
+                    <label for="email">Correo electrónico:</label><br>
+                    <input type="email" id="correo" name="correo" placeholder="algo@dominio.com"><br>
+                    
+                    <label for="telefono">Teléfono:</label><br>
+                    <input type="tel" id="telefono" name="telefono" placeholder="55-55-55-55"><br>
+                    
+                    <label for="comentario">Comentario:</label><br>
+                    <textarea id="comentario" name="comentario" placeholder="Escribe tus comentarios."></textarea><br>
+                    
+                    <button onclick="enviar();" class="btn btn-primary">ENVIAR</button>
+                 
+              </form>
+              </div>
+              </div>
+        </div>
+        <!-- Se recomienda poner la funcionalidad de javascript al final del contenido inmediatamente antes de cerrar la etiqueta body,
+            esto para prevenir que el navegador tarde en cargar el contenido al leer antes la funcionalidad-->
+        <script>
+            function enviar() {
+            event.preventDefault();
+            var nombre=$('#nombre').val();
+            var correo=$('#correo').val();
+            var telefono=$('#telefono').val();
+            var comentario=$('#comentario').val();
+            if (nombre=="") {
+                alert("FALTA AGREGAR EL NOMBRE");
+            } else {
+                if (correo=="") {
+                    alert("FALTA AGREGAR EL CORREO ELÉCTRONICO");
+                } else {
+                    if (telefono=="") {
+                        alert("FALTA AGREGAR EL TELÉFONO");
+                    } else {
+                        if (comentario=="") {
+                            alert("FALTA EL COMENTARIO");
+                        } else {
+                            $('#formulario').html("<h2>MENSAJE ENVIADO</h2>");
+                        }
+                    }
+              }
+          }
+            }</script>
+    </body>
+    </html>

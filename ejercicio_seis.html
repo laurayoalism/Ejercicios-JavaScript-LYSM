@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 6 - Consulta con un WebService. </title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Consulta con un Webservice">
+		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="author" content="Laura Yoali Sosa Mendoza.">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/estilos.css" type="text/css">
+	</head>
+
+	<body>
+		<div class="container principal">
+			<h1>Ejercicio 6 - Consulta con un WebService</h1>
+	<script type="text/javascript">
+	function actualizar_noticias() {
+ 
+		var laurl='https://lado.mx/ws.php?servicio=ultimas_notas';
+		$.ajax({ 
+			type: 'GET', 
+			url: laurl, 
+			data: { get_param: 'value' }, 
+			dataType: 'json',
+			success: function (data) {
+				// console.log(data);
+				var cadena='';
+
+				for (var key in data) { 
+					if (data[key]['url_corto']) {
+						var tweet='<i class="fa fa-twitter" title="Noticia agregada en Twitter con la cuenta @lado_mx"></i>';
+					} else {
+						var tweet='';
+					}
+					if (data[key]['id_facebook']!='') {
+						var facebook='<i class="fa fa-facebook-official" title="Noticia agregada en Facebook con la cuenta /ladomx"></i>';
+					} else {
+						var facebook='';
+					}
+					if (data[key]['visita']>50) {
+						var visitada='<div class="col-md-12"></div><i class="fa fa-angle-double-up" title="Noticia más visitada"></i>';
+					}
+					if (data[key]['visita']>25) {
+						var visitada='<div class="col-md-12"></div><i class="fa fa-angle-up" title="Noticia muy visitada"></i>';
+					} else {
+						var visitada='';
+					}
+					if (data[key]['visita']>25) {
+						var imagen = "<img src='" + data[key]['url_imagen'] + "' style='width: 100%; height auto;' />";  
+					} else {
+						var imagen = "";
+					}
+					if (data[key]['es_video']==false) {
+						var es_video = "";
+					} else {
+						var es_video = "<i class='glyphicon glyphicon-facetime-video'></i>";
+					}
+					cadena=cadena+"<li class='list-group-item'><a href='http://www.lado.mx/noticias.php?id=" + data[key]['id_mensaje'] + "' target='_blank'><p>"+ imagen +"" + tweet + facebook + visitada + ' ' + es_video + ' <b>' + data[key]['titulo'] + "</b> " + data[key]['hora'] + "</p></a></li>";
+				} 
+
+				$('#ultimas').empty().html(cadena);
+			}});
+}</script>
+<script type="text/javascript">
+$(document).ready(function() {
+actualizar_noticias();
+setInterval(function() {
+actualizar_noticias();
+}, 300000);
+});
+</script>
+		<ul id="ultimas" class="list-group">
+
+		</ul>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+/* Hoja de estilos para los ejercicios */
+
+body {
+    background-color:#d5a897;
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+}
+.principal {
+    background-color: #dcc1ac;
+    margin-top: 20px;
+}
+#ultimas a {
+    font-size: 14px;
+    color:#56170c;
+    font-weight: normal;
+    font-family: 'Overpass', sans-serif;
+    margin-bottom: 10px;
+}

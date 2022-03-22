@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Laura Yoali Sosa Mendoza.">
+    <title>Ejercicio 3.</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    function responder() {
+    var nombre = $("#nombre").val();
+    if (nombre == "John Deacon") {
+    	alert('Respuesta correcta');
+    } else {
+    	alert('Respuesta incorrecta');
+    }
+}
+</script>
+</head>
+<body>
+    <p>¿Quién es el integrante bajista de Queen?</p>
+	<input type="text" name="nombre" id="nombre" />
+	<button onclick="responder();">Iniciar</button>    
+</body>
+</html>
